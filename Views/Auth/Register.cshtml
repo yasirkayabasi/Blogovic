@@ -1,0 +1,36 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<link href="~/css/auth.css" rel="stylesheet" />
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <!-- Icon -->
+        <div class="fadeIn first">
+<img src="https://www.kindpng.com/picc/m/130-1300332_user-icon-remix-clip-arts-computer-icons-avatar.png" alt="User Icon Remix Clip Arts - Computer Icons Avatar Png, Transparent             <br />
+            <h2 style="margin:0px;">Kayıt Ol</h2>
+        </div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (TempData["message"] != null)
+        {
+                    <div class="text-success">@TempData["message"]</div>
+        }
+
+        <!-- Register Form -->
+        <form asp-action="Register">
+            <input asp-for="Email" class="fadeIn second" placeholder="Email Giriniz." />
+            <br />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <input type="submit" value="Kayıt Ol" class="fadeIn fourth" />
+        </form>
+
+        @*Already have an account?*@
+        <div id="formFooter">
+            <a asp-action="Login" asp-controller="Auth" class="underlineHover">Zaten Bir Hesabınız Var Mı?</a>
+        </div>
+    </div>
+</div>
